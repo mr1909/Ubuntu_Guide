@@ -1,4 +1,4 @@
-# Ubuntu_Guide
+# Ubuntu Guide
 Ubuntu Guide
 
 Hi everyone, this is some of basic Ubuntu commands that may come in handy, enjoy!
