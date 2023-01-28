@@ -1,0 +1,50 @@
+sudo nano /etc/rc.local
+
+
+
+
+--in this example 78.157.40.249 is server it self and 86.106.158.121 is secondary server which we are tunneling to [sending traffic of specific port from server 78.157.40.249 to server 86.106.158.121].
+
+
+---------------------------code---------------------------
+
+#! /bin/bash
+sysctl net.ipv4.ip_forward=1
+iptables -t nat -A PREROUTING -p tcp --dport 22 -j DNAT --to-destination 78.157.40.249
+iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 86.106.158.121
+iptables -t nat -A PREROUTING -p tcp --dport 8086 -j DNAT --to-destination 78.157.40.249
+iptables -t nat -A PREROUTING -p tcp --dport 8087 -j DNAT --to-destination 78.157.40.249
+iptables -t nat -A PREROUTING -p tcp --dport 8088 -j DNAT --to-destination 78.157.40.249
+iptables -t nat -A PREROUTING -p tcp --dport 8000 -j DNAT --to-destination 78.157.40.249
+iptables -t nat -A PREROUTING -p tcp --dport 7227 -j DNAT --to-destination 78.157.40.249
+iptables -t nat -A PREROUTING -p tcp --dport 6881 -j DNAT --to-destination 78.157.40.249
+iptables -t nat -A PREROUTING -p udp --dport 6881 -j DNAT --to-destination 78.157.40.249
+iptables -t nat -A PREROUTING -p tcp --dport 50007 -j DNAT --to-destination 78.157.40.249
+iptables -t nat -A PREROUTING -p udp --dport 50007 -j DNAT --to-destination 78.157.40.249
+iptables -t nat -A PREROUTING -j DNAT --to-destination 86.106.158.121
+iptables -t nat -A POSTROUTING -j MASQUERADE
+exit 0
+
+---------------------------code---------------------------
+
+
+
+
+
+iptables -t nat -A PREROUTING -p tcp --dport 22 -j DNAT --to-destination 78.157.40.249 
+
+-- in this code all traffic for port 22 will be sended to server it self [78.157.40.249].
+
+
+
+iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 86.106.158.121
+
+-- in this code all traffic for port 443 will be sended to secondary server [86.106.158.121].
+
+
+
+
+iptables -t nat -A PREROUTING -j DNAT --to-destination 86.106.158.121
+
+-- in this code all traffic for port all the port not specified will be sended to secondary server [86.106.158.121].
+
