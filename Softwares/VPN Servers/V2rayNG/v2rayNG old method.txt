@@ -1,0 +1,68 @@
+v2rayNG old method:
+
+
+https://github.com/pouramin/Iran-vpn
+
+
+
+---------------------------code---------------------------
+
+#I-R-A-N SECTION
+
+apt-get update -y && apt-get upgrade -y
+
+-- or
+
+apt update && apt upgrade -y
+
+
+
+sysctl net.ipv4.ip_forward=1
+iptables -t nat -A PREROUTING -p tcp --dport 22 -j DNAT --to-destination 78.157.40.249
+iptables -t nat -A PREROUTING -j DNAT --to-destination 185.162.235.33
+iptables -t nat -A POSTROUTING -j MASQUERADE
+
+---------------------------------------------------------
+
+
+--if speed was slow run this code:
+
+wget -N --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && bash bbr.sh
+
+
+===========================================================================================================================
+
+
+#EU SECTION
+
+
+apt-get update -y && apt-get upgrade -y
+
+apt install curl -y
+
+bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
+
+
+-- all questions answer wih no.
+
+
+
+-------------
+
+--admin panel:
+
+EU-IP:54321
+
+default user and pass:
+admin, admin
+
+-------------
+
+--if speed was slow run this code:
+
+wget -N --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && bash bbr.sh
+
+
+===========================================================================================================================
+
+

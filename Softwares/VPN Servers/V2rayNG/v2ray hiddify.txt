@@ -1,0 +1,15 @@
+Hiddify Config:
+
+https://github.com/hiddify/hiddify-config/
+
+
+-----------------------------------------------------
+
+sudo bash -c "$(URL=https://raw.githubusercontent.com/hiddify/hiddify-config/main; curl -Lfo- $URL/config.env.default $URL/common/download_install.sh)"
+
+-----------------------------------------------------
+
+-- at the end of installation, copy admin panel url from ssh commands log.
+-- go to url that you just copy.
+-- add sw.domain.com [cloudflare]
+-- copy newly generated url.
