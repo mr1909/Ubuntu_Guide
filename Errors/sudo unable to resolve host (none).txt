@@ -1,0 +1,25 @@
+Error message "sudo: unable to resolve host (none)":
+
+--Two things to check (assuming your machine is called my-machine, you can change this as appropriate):
+
+
+
+------------------------------------
+
+--That the /etc/hostname file contains just the name of the machine.
+
+nano /etc/hostname
+
+
+
+------------------------------------
+--That /etc/hosts has an entry for localhost. It should have something like:
+
+nano nano /etc/hostname
+
+ 127.0.0.1    localhost.localdomain localhost
+ 127.0.1.1    my-machine
+
+------------------------------------
+
+--If either of these files aren't correct (since you can't sudo), you may have to reboot the machine into recovery mode and make the modifications, then reboot to your usual environment.

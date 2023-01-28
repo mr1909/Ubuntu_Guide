@@ -1,0 +1,10 @@
+Internet Speed Test:
+
+
+---------------------------code---------------------------
+
+sudo apt install speedtest-cli
+
+speedtest-cli --secure
+
+---------------------------code---------------------------
