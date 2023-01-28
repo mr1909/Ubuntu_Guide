@@ -1,0 +1,4 @@
+Extract a ZIP File to a Different Directory:
+
+unzip test.zip –d /home/user/destination
+----------------------------------------

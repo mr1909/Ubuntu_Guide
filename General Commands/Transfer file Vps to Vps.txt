@@ -1,0 +1,4 @@
+run in destination server to transfer from source[78.157.40.249] to destination[234.53.4.121].
+
+
+scp -r root@78.157.40.249:/root/dl/ /root/dl/

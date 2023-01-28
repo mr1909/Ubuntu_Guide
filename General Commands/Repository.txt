@@ -1,0 +1,5 @@
+Ubuntu repository:
+
+http://repos.um.ac.ir
+
+nano /etc/apt/sources.list

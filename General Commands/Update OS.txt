@@ -1,0 +1,8 @@
+Update Ubuntu:
+
+sudo apt-get update
+sudo apt-get upgrade
+
+apt update && apt upgrade -y
+
+sudo reboot

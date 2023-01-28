@@ -1,0 +1,162 @@
+How To Install DNS Server (Bind9) On Ubuntu 20.04:
+
+
+apt-get update 
+apt-get upgrade 
+apt-get dist-upgrade
+
+apt-get install bind9
+apt-get install dnsutils
+
+
+nano /etc/bind/named.conf.options
+
+--Add the following block to it, here we have used Google’s DNS.
+
+forwarders {
+8.8.8.8;
+8.8.4.4;
+};
+
+
+systemctl restart bind9
+
+nano /etc/bind/named.conf
+
+---Ensure that it contains the following lines and NOT commented:
+
+include "/etc/bind/named.conf.options";
+include "/etc/bind/named.conf.local";
+include "/etc/bind/named.conf.default-zones";
+
+
+nano /etc/bind/named.conf.local
+
+--Add the following block to it:
+zone "dlmr1909.ir" {
+type master;
+file "/etc/bind/db.dlmr1909.ir";
+allow-transfer { 78.157.36.105; };
+also-notify { 78.157.36.105; };
+};
+
+sudo cp /etc/bind/db.local /etc/bind/db.dlmr1909.ir
+
+nano /etc/bind/db.dlmr1909.ir
+
+$TTL	604800
+@	IN	SOA	db.dlmr1909.ir. root.dlmr1909.ir. (
+			      2		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+@	IN	NS	ns.dlmr1909.ir.
+@	IN	A	78.157.36.105
+@	IN	AAAA	::1
+ns	IN	A	78.157.36.105
+
+
+
+systemctl restart bind9
+
+nano /etc/bind/named.conf.local
+
+--Add the following block:
+zone "10.0.2.in-addr.arpa" {
+type master;
+file "/etc/bind/db.10";
+};
+
+--Where the 10.0.2 is the first three octets of your network.
+
+
+sudo cp /etc/bind/db.127 /etc/bind/db.10
+
+nano /etc/bind/db.10
+
+$TTL	604800
+@	IN	SOA	ns.dlmr1909.ir. root.dlmr1909.ir. (
+			      1		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+@	IN	NS	ns.
+10	IN	PTR	ns.dlmr1909.ir.
+
+
+systemctl restart bind9
+
+named-checkzone dlmr1909.ir /etc/bind/db.dlmr1909.ir
+
+named-checkzone 192.168.0.0/32 /etc/bind/db.10 
+
+named-checkconf  /etc/bind/named.conf.local 
+
+named-checkconf  /etc/bind/named.conf
+
+
+
+reboot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------
+-This is advanced option for manage DNS from browser.
+-Now I am install webmin for manage dns server from browser.
+
+cd
+apt update
+
+nano /etc/apt/sources.list
+
+
+-Insert below two lines into sources.list for install webmin.
+
+deb http://download.webmin.com/download/repository sarge contrib
+deb http://webmin.mirror.somersettechsolutions.co.uk/repository sarge contrib
+
+------or
+
+-you can use below details for install webmin manage dns server.
+
+wget -q http://www.webmin.com/jcameron-key.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb http://download.webmin.com/download/repository sarge contrib"
+
+---------------------
+-then
+
+apt-get update
+apt-get install webmin -y
+
+

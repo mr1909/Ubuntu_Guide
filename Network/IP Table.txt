@@ -1,6 +1,7 @@
+sending traffic of ports from server1 to server2:
+
+
 sudo nano /etc/rc.local
-
-
 
 
 --in this example 78.157.40.249 is server it self and 86.106.158.121 is secondary server which we are tunneling to [sending traffic of specific port from server 78.157.40.249 to server 86.106.158.121].

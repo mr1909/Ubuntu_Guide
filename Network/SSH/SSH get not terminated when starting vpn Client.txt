@@ -1,0 +1,16 @@
+SSH get not terminated when starting vpn Client:
+
+
+echo 200 isp2 >> /etc/iproute2/rt_tables
+ip rule add from <interface_IP> table isp2 prio 1
+ip route add default via <gateway_IP> dev <interface> table isp2
+
+
+example:
+echo 200 isp2 >> /etc/iproute2/rt_tables
+ip rule add from 78.157.36.112 table isp2 prio 1
+ip route add default via 78.157.36.65 dev eth0 table isp2
+
+
+ps: to get gateway:
+route -n

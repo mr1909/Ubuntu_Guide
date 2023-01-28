@@ -1,0 +1,48 @@
+Install a Desktop (GUI) on an Ubuntu Server:
+sudo apt-get install tasksel
+sudo apt-get install slim
+tasksel
+--select Ubuntu desktop
+
+
+
+apt install tigervnc-standalone-server
+
+adduser mrx
+--give password for the user
+
+su - mrx
+
+
+vncserver -localhost no
+--give password for vnc
+
+
+vncserver -list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+not need it...
+sudo apt-get install kde-plasma-desktop
+sudo service slim start
+
+
+

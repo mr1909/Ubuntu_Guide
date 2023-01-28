@@ -1,0 +1,13 @@
+install openvpn ubuntu server:
+
+
+
+wget https://git.io/vpn -O openvpn-install.sh
+chmod +x openvpn-install.sh
+bash openvpn-install.sh
+
+--select TCP
+
+sudo systemctl start openvpn-server@server.service
+sudo systemctl restart openvpn-server@server.service
+sudo systemctl stop openvpn-server@server.service

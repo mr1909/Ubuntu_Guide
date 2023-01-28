@@ -1,0 +1,30 @@
+How to Change the Default SSH Port:
+
+sudo nano /etc/ssh/sshd_config
+
+
+From:
+#Port 22
+
+To:
+Port 20200
+
+
+
+
+sudo systemctl reload sshd
+
+sudo ufw allow 20200/tcp
+
+
+sudo reboot
+
+
+
+
+
+
+
+
+
+

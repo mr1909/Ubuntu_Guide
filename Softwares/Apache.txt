@@ -1,0 +1,20 @@
+Apache install:
+
+sudo apt-get update
+sudo apt-get install apache2
+sudo ufw allow 'Apache'
+
+
+--stop,start,restart,reload
+sudo systemctl stop apache2.service
+sudo systemctl start apache2.service
+sudo systemctl restart apache2.service
+sudo systemctl reload apache2.service
+
+file location:
+located at /var/www/html/index.html
+
+
+--if php showing as text:
+sudo apt-get install libapache2-mod-php
+service apache2 restart

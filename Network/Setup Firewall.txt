@@ -1,0 +1,101 @@
+How To Set Up a Firewall with UFW on Ubuntu:
+
+sudo apt install ufw
+
+-Using IPv6 with UFW (Optional)
+sudo nano /etc/default/ufw
+
+IPV6=yes
+
+
+
+-Setting Up Default Policies
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+
+-Allowing SSH Connections
+sudo ufw allow ssh
+
+
+-Allowing specifying the port instead of the service name: [Port]
+sudo ufw allow 22
+
+
+-Enabling UFW
+sudo ufw enable
+
+
+-Allowing Other Connections
+
+-to allow X11 connections, which use ports 6000-6007, use these commands:
+sudo ufw allow 6000:6007/tcp
+sudo ufw allow 6000:6007/udp
+
+-follows to open TCP port 80 and 443:
+sudo ufw allow 80/tcp comment 'accept Apache'
+sudo ufw allow 443/tcp comment 'accept HTTPS connections'
+
+-Open UDP/1194 (OpenVPN) server:
+sudo ufw allow 1194/udp comment 'OpenVPN server'
+
+
+
+-Allow port ranges via ufw
+-We can allow port ranges too say, tcp and udp 3000 to 4000:
+sudo ufw allow 3000:4000/tcp
+sudo ufw allow 3000:4000/udp
+
+
+-Specific IP Addresses
+sudo ufw allow from 203.0.113.4
+sudo ufw allow from 203.0.113.4 to any port 22
+
+-Subnets
+sudo ufw allow from 203.0.113.0/24
+sudo ufw allow from 203.0.113.0/24 to any port 22
+
+-Connections to a Specific Network Interface
+ip addr
+sudo ufw allow in on eth0 to any port 80
+sudo ufw allow in on eth1 to any port 3306
+
+-Denying Connections
+sudo ufw deny http
+sudo ufw deny from 203.0.113.4
+
+
+
+
+-Deleting Rules
+sudo ufw status numbered
+sudo ufw delete 2
+
+sudo ufw delete allow http
+sudo ufw delete allow 80
+
+
+
+-Checking UFW Status and Rules
+sudo ufw status verbose
+or
+sudo ufw status
+or
+sudo systemctl status ufw.service
+
+
+-Disabling or Resetting UFW
+sudo ufw disable
+sudo ufw reset
+
+
+
+
+
+
+
+
+
+
+
+

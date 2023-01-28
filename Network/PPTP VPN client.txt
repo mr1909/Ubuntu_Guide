@@ -1,0 +1,48 @@
+Installing PPTP VPN client:
+
+sudo apt-get update
+
+apt install pptp-linux
+
+cd /etc/ppp/peers
+
+touch PPTP
+
+nano /etc/ppp/peers/PPTP
+
+---------------------------------------------------
+
+pty "pptp vipfr.serspeed.info --nolaunchpppd --debug"
+name 1v534272
+password 080544
+remotename PPTP
+require-mppe-128
+require-mschap-v2
+refuse-eap
+refuse-pap
+refuse-chap
+refuse-mschap
+noauth
+debug
+persist
+maxfail 0
+defaultroute
+replacedefaultroute
+usepeerdns
+
+
+---------------------------------------------------
+
+chmod 600 /etc/ppp/peers/PPTP
+
+
+
+---------------------------------------------------
+
+To connect:
+
+pon PPTP
+
+disconnect:
+
+poff PPTP
