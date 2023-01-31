@@ -1,8 +1,13 @@
 Update Ubuntu:
 
-sudo apt-get update
-sudo apt-get upgrade
+
+
+apt-get update -y && apt-get upgrade -y
+
+-- or
 
 apt update && apt upgrade -y
+
+
 
 sudo reboot
