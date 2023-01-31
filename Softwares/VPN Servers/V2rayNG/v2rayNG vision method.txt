@@ -5,13 +5,18 @@ https://github.com/reeceyng/v2ray-agent
 
 
 
+
+-----------------------------
+
 apt-get update -y && apt-get upgrade -y
 
 -- or
 
 apt update && apt upgrade -y
 
------------------------------
+
+reboot
+
 
 wget -P /root -N --no-check-certificate "https://raw.githubusercontent.com/reeceyng/v2ray-agent/master/install.sh" && chmod 700 /root/install.sh && /root/install.sh
 
