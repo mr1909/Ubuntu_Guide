@@ -1,4 +1,38 @@
 Install a Desktop (GUI) on an Ubuntu Server:
+https://www.cloudsigma.com/installing-and-configuring-virtual-network-computing-vnc-on-ubuntu-20-04/
+
+
+sudo apt update
+sudo apt install xfce4 xfce4-goodies
+
+sudo apt install tightvncserver
+
+vncserver
+
+
+
+Password:
+Verify:
+Would you like to enter a view-only password (y/n)? n
+
+
+--connect with VNC Viewer:
+
+ip:5901
+
+
+--after each reboot run 
+vncserver
+
+
+
+
+
+
+
+-------------------------------------------------------
+method 2:
+
 sudo apt-get install tasksel
 sudo apt-get install slim
 tasksel
@@ -19,6 +53,8 @@ vncserver -localhost no
 
 
 vncserver -list
+
+
 
 
 

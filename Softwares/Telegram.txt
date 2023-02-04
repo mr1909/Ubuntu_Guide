@@ -1,0 +1,11 @@
+Install telegram desktop and using with vnc Viewer:
+
+install vnc server [help in "General Commands >> GUI >> Install a Desktop (GUI) on an Ubuntu Server+ vnc"].
+
+
+sudo apt update
+
+sudo apt install telegram
+
+
+--run with vnc Viewer, it will take a minute.
