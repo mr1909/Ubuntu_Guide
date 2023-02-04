@@ -1,0 +1,28 @@
+How to Use SSH Tunneling:
+
+how to connect to [VPS 2 >> 156.22.203.67] from [VPS 1 >> 11.34.221.43]:
+
+
+---------------installing openssh--------------
+
+apt update && apt upgrade -y
+
+sudo apt-get install openssh-server openssh-client
+
+---------------installing openssh--------------
+
+
+
+
+-- and for running connect to [VPS 1] then run code blow:
+
+-----------------SSH Tunneling-----------------
+
+ssh root@156.22.203.67
+
+-- enter password for [VPS 2] user.
+
+Are you sure you want to continue connecting (yes/no/[fingerprint])?  yes
+
+--Done.
+-----------------SSH Tunneling-----------------
