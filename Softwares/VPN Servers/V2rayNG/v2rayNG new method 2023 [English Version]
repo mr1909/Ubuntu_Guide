@@ -1,0 +1,27 @@
+v2rayNG new method 2023 [English Version]:
+
+
+https://github.com/mack-a/v2ray-agent
+
+
+
+-----------------------------
+
+apt-get update -y && apt-get upgrade -y
+
+-- or
+
+apt update && apt upgrade -y
+
+
+reboot
+
+
+wget -P/root -N --no-check-certificate "https://raw.githubusercontent.com/mack-a/v2ray-agent/master/shell/install_en.sh" && mv /root/install_en.sh /root/install.sh && chmod 700 /root/install.sh &&/root/install.sh
+
+
+-- 1 [install] >> sw.domain.com [cloudflare] >> 1 [let's encrypt]
+
+-----------------------------
+
+-- for all other questions just press enter.
