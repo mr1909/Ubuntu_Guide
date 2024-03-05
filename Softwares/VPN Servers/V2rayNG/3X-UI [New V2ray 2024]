@@ -1,0 +1,31 @@
+3X-UI [New V2ray 2024]:
+
+1.
+install Ubuntu on vps
+
+2.
+apt-get update -y && apt-get upgrade -y
+
+3.
+reboot
+
+--------------------
+3X-UI Github:
+https://github.com/MHSanaei/3x-ui
+--------------------
+
+4.
+bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
+
+5.
+Do you want to continue with the modification [y/n]?:y
+Please set up your username: 
+
+Please set up your password:
+
+Please set up the panel port:
+--------------------------------------------
+
+login to panel >> ip:port
+
+
