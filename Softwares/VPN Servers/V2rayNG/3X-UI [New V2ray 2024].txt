@@ -25,7 +25,28 @@ Please set up your password:
 
 Please set up the panel port:
 --------------------------------------------
-
+6.
 login to panel >> ip:port
+
+--------------------------------------------
+SSL Certificate:
+
+7.
+apt-get install certbot -y
+certbot certonly --standalone --agree-tos --register-unsafely-without-email -d uk1.mydomain.com 
+certbot renew --dry-run
+
+!! note: [uk1.mydomain.com] >> add vps ip to "cloudflare" : Proxy status >> DNS only. !!
+
+copy this part from ssh log:
+
+Certificate is saved at: /etc/letsencrypt/live/uk1.mydomain.com/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/uk1.mydomain.com/privkey.pem
+This certificate expires on 2024-06-03.
+
+-------------------------------
+
+
+
 
 
